@@ -9,7 +9,7 @@ notes.get("/", (req, res) =>
     res.json(JSON.parse(data));
     err
       ? console.error(err)
-      : console.log("\nsent current notes to /notes GET");
+      : console.info("\nsent current notes to /notes GET");
   })
 );
 
@@ -43,7 +43,7 @@ notes.post("/", (req, res) => {
   }
 });
 
-// DELETE Route for a specific tip
+// DELETE at /api/notes/:id
 notes.delete("/:id", (req, res) => {
   const noteId = req.params.id;
 
