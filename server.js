@@ -21,9 +21,9 @@ app.get("/notes", (req, res) =>
 );
 
 // send index.html for misc requests - comment out during testing
-// app.get("*", (req, res) =>
-//   res.sendFile(path.join(__dirname, "/public/index.html"))
-// );
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+);
 
 // listen on port indefinitely
 app.listen(PORT, () =>

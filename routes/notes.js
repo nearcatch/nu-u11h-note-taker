@@ -35,7 +35,7 @@ notes.post("/", (req, res) => {
             ? console.error(err)
             : console.info(`\nnew note written to db.json`)
         );
-        res.json(`new note saved to database`);
+        res.status(201).json(`new note saved to database`);
       }
     });
   } else {
@@ -45,21 +45,25 @@ notes.post("/", (req, res) => {
 
 // DELETE at /api/notes/:id
 notes.delete("/:id", (req, res) => {
+  // set noteId from param
   const noteId = req.params.id;
-
+  // read current db and then filter out note matching noteId
   fs.readFile("./db/db.json", (err, data) => {
     if (err) {
       console.error(err);
       res.error("error in deleting note");
     } else {
       const db = JSON.parse(data);
+      // create new notes array without note matching requested id
       const newDb = db.filter((note) => note.id !== noteId);
+      // write updated notes array to db
       fs.writeFile("./db/db.json", JSON.stringify(newDb, null, 4), (err) =>
         err ? console.error(err) : console.info(`\nnote deleted from db.json`)
       );
-      res.json(`note deleted from database`);
+      res.status(201).json(`note deleted from database`);
     }
   });
 });
 
+// export notes router
 module.exports = notes;
