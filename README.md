@@ -34,7 +34,7 @@
     <br />
     <br />
     <a href="https://nearcatch-nu-u11h-note-taker.herokuapp.com/">View Demo</a>
-    .
+    ·
     <a href="https://github.com/nearcatch/nu-u11h-note-taker/issues">Report Bug</a>
     ·
     <a href="https://github.com/nearcatch/nu-u11h-note-taker/issues">Request Feature</a>
